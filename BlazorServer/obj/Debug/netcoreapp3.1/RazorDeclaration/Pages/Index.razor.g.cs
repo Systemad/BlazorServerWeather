@@ -114,8 +114,7 @@ using BlazorServer.Models;
     }
 
 
-    public WeatherDay NewWeatherDay { get; set; } = new WeatherDay();
-
+    private WeatherDay NewWeatherDay { get; set; } = new WeatherDay();
     private async Task AddNewWeather()
     {
         NewWeatherDay.DateTime = DateTime.Now;

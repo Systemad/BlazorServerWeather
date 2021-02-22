@@ -7,6 +7,9 @@
       <e p="BlazorServer" t="IncludeRecursive">
         <e p=".gitignore" t="Include" />
         <e p="_Imports.razor" t="Include" />
+        <e p="aaa.db" t="Include" />
+        <e p="aaa.db-shm" t="Include" />
+        <e p="aaa.db-wal" t="Include" />
         <e p="App.razor" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
@@ -46,9 +49,6 @@
           <e p="SurveyPrompt.razor" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
-        <e p="Weather.db" t="Include" />
-        <e p="Weather.db-shm" t="Include" />
-        <e p="Weather.db-wal" t="Include" />
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
             <e p="bootstrap" t="Include">

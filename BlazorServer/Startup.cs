@@ -33,7 +33,7 @@ namespace BlazorServer
 
             services.AddDbContext<WeatherDbContext>(options =>
             {
-                options.UseSqlite("Data Source = Weather.db");
+                options.UseSqlite("Data Source = aaa.db");
             });
             services.AddScoped<WeatherServices>();
         }

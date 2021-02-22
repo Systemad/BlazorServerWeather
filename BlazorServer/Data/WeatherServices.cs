@@ -53,8 +53,8 @@ namespace BlazorServer.Data
         {
             try
             {
-                var productExist = dbContext.Weather.FirstOrDefault(p => p.WeatherId == weatherDay.WeatherId);
-                if (productExist != null)
+                var weatherExist = dbContext.Weather.FirstOrDefault(p => p.WeatherId == weatherDay.WeatherId);
+                if (weatherExist != null)
                 {
                     dbContext.Update(weatherDay);
                     await dbContext.SaveChangesAsync();
