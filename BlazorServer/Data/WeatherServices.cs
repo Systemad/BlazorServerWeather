@@ -9,79 +9,39 @@ namespace BlazorServer.Data
 {
     public class WeatherServices
     {
-        private WeatherDbContext dbContext;
+        private WeatherDbContext _dbContext;
 
         public WeatherServices(WeatherDbContext dbContext)
         {
-            this.dbContext = dbContext;
+            this._dbContext = dbContext;
         }
-
-        /// <summary>
-        /// This method returns the list of product
-        /// </summary>
-        /// <returns></returns>
+        
         public async Task<List<WeatherDay>> GetWeatherAsync()
         {
-            return await dbContext.Weather.ToListAsync();
+            return await _dbContext.Weather.ToListAsync();
         }
-
-        /// <summary>
-        /// This method add a new product to the DbContext and saves it
-        /// </summary>
-        /// <param name="weatherDay"></param>
-        /// <returns></returns>
-        public async Task<WeatherDay> AddWeatherAsync(WeatherDay weatherDay)
+        
+        public async Task AddWeatherAsync(WeatherDay weatherDay)
         {
-            try
-            {
-                dbContext.Weather.Add(weatherDay);
-                await dbContext.SaveChangesAsync();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return weatherDay;
+            _dbContext.Weather.Add(weatherDay);
+            await _dbContext.SaveChangesAsync();
         }
-
-        /// <summary>
-        /// This method update and existing product and saves the changes
-        /// </summary>
-        /// <param name="weatherDay"></param>
-        /// <returns></returns>
+        
         public async Task UpdateWeatherAsync(WeatherDay weatherDay)
         {
-            try
+            var weatherExist =
+                _dbContext.Weather.FirstOrDefault(p => p.WeatherId == weatherDay.WeatherId);
+            if (weatherExist != null)
             {
-                var weatherExist = dbContext.Weather.FirstOrDefault(p => p.WeatherId == weatherDay.WeatherId);
-                if (weatherExist != null)
-                {
-                    dbContext.Update(weatherDay);
-                    await dbContext.SaveChangesAsync();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
+                _dbContext.Update(weatherDay);
+                await _dbContext.SaveChangesAsync();
             }
         }
 
-        /// <summary>
-        /// This method removes and existing product from the DbContext and saves it
-        /// </summary>
-        /// <param name="weatherDay"></param>
-        /// <returns></returns>
         public async Task DeleteWeatherAsync(WeatherDay weatherDay)
         {
-            try
-            {
-                dbContext.Weather.Remove(weatherDay);
-                await dbContext.SaveChangesAsync();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            _dbContext.Weather.Remove(weatherDay);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
