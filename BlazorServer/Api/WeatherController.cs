@@ -20,9 +20,9 @@ namespace BlazorServer.Api
             this._dbContext = dbContext;
         }
 
-        // /api/WeatherForecast/WeatherAll
+        // /api/Weather/Weathers
         [HttpGet]
-        [Route("WeatherAll")]
+        [Route("Weathers")]
         public List<WeatherDay> GetAllWeather()
         {
             var list = _dbContext.Weather
@@ -30,7 +30,7 @@ namespace BlazorServer.Api
                 return list;
         }
         
-        // /api/WeatherForecast/WeatherById/{id}
+        // /api/Weather/WeatherById/{id}
         [HttpGet]
         [Route("WeatherById/{id}")]
         public WeatherDay GetWeatherById(int id)
@@ -40,7 +40,7 @@ namespace BlazorServer.Api
                 return weather;
         }
         
-        // /api/WeatherForecast/DeleteWeatherById/{id}
+        // /api/Weather/DeleteWeatherById/{id}
         [HttpDelete]
         [Route("DeleteWeatherById/{id}")]
         public void DeleteWeatherById(int id)
@@ -54,7 +54,7 @@ namespace BlazorServer.Api
                 }
         }
         
-        // /api/WeatherForecast/AddWeather
+        // /api/Weather/AddWeather
         [HttpPost]
         [Route("api/AddWeather")]
         public void PostWeather([FromForm] string weekday, [FromQuery] int temp)
