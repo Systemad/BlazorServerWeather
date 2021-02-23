@@ -1,18 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BlazorServer.Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Radzen;
 
 namespace BlazorServer
 {
@@ -41,9 +36,14 @@ namespace BlazorServer
             });
             
             //services.AddCors();
+            
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<WeatherServices>();
+            services.AddScoped<DialogService>();
+            services.AddScoped<NotificationService>();
+            services.AddScoped<TooltipService>();
+            services.AddScoped<ContextMenuService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,16 @@
+﻿@page "/radzencounter"
+
+<h1>Counter</h1>
+
+<p>Current count: @_currentCount</p>
+
+<RadzenButton Click="@IncrementCount" Text="Hi"></RadzenButton>
+
+@code {
+    private int _currentCount = 0;
+
+    private void IncrementCount()
+    {
+        _currentCount++;
+    }
+}
