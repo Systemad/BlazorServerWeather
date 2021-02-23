@@ -39,7 +39,7 @@ namespace BlazorServer
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
-            
+
             //services.AddCors();
             services.AddRazorPages();
             services.AddServerSideBlazor();

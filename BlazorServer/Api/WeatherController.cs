@@ -20,9 +20,9 @@ namespace BlazorServer.Api
             this._dbContext = dbContext;
         }
 
-        // /api/WeatherForecast/WeatherAll
+        // /api/WeatherForecast/Weathers
         [HttpGet]
-        [Route("WeatherAll")]
+        [Route("Weathers")]
         public List<WeatherDay> GetAllWeather()
         {
             var list = _dbContext.Weather
