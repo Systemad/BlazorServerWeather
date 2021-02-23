@@ -1,0 +1,98 @@
+﻿@page "/linechart"
+@using BlazorServer.Models
+
+@inject WeatherServices Service
+
+Pie series
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@_enumerable">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Quarterly revenue per product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+
+    List<WeatherDay> _weathers = new List<WeatherDay>();
+
+    IEnumerable<DayCat> _weathers22 = null;
+    
+    public List<object> series1Data = new List<object>() { 10, 2, 5, 6 };
+    public List<object> series2Data = new List<object>() { 5, 8, 2, 7 };
+    public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
+    static Random rnd = new Random();
+    
+    IEnumerable<int> _enumerable = Enumerable.Range(1, 50).OrderBy(i => rnd.Next()).Take(12).ToArray();
+    
+    public class DayCat
+    {
+        public String WeekDay { get; set; }
+        public int Days { get; set; }
+        
+        public bool? IsSeparated
+        {
+            get
+            { if (WeekDay == "Monday") return true; else return false; }
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshWeathers();
+    }
+
+    private async Task RefreshWeathers()
+    {
+        var weathers1 = await Service.GetWeatherAsync();
+        var groupby = weathers1.GroupBy(a => a.WeekDay);
+
+        _weathers22 = weathers1.GroupBy(x => x.WeekDay)
+            .Select(y => new DayCat() {WeekDay = y.Key, Days = y.Count()});
+        //_weathers22.First().IsSeparated = true;
+
+    //var groupby22 = weathers1.GroupBy(a => a.WeekDay, 5);
+
+
+    //var weathegroup = 
+    }
+    /*
+    public class MyPieChartModel
+    {
+        public string SegmentName { get; set; }
+        public double SegmentValue { get; set; }
+    }
+    
+
+    public List<MyPieChartModel> pieData = new List<MyPieChartModel>
+    {
+        new MyPieChartModel
+        {
+            SegmentName = "Product 1",
+            SegmentValue = 2
+        },
+        new MyPieChartModel
+        {
+            SegmentName = "Product 2",
+            SegmentValue = 3
+        },
+        new MyPieChartModel
+        {
+            SegmentName = "Product 3",
+            SegmentValue = 4
+        }
+    };
+    */
+}

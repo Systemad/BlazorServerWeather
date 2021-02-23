@@ -22,7 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -49,6 +50,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "Telerik.UI.for.Blazor.Trial": {
+              "target": "Package",
+              "version": "[2.21.1, )"
             }
           },
           "imports": [

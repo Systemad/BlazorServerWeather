@@ -29,11 +29,12 @@ namespace BlazorServer
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddTelerikBlazor();
             services.AddSingleton<WeatherForecastService>();
 
             services.AddDbContext<WeatherDbContext>(options =>
             {
-                options.UseSqlite("Data Source = aaa.db");
+                options.UseSqlite("Data Source = Weather.db");
             });
             services.AddScoped<WeatherServices>();
         }

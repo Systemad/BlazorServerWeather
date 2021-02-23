@@ -1,0 +1,86 @@
+﻿@page "/piechart"
+@using BlazorServer.Models
+
+@inject WeatherServices Service
+
+Pie series
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Pie" Data="@_weathers22" ExplodeField="@nameof(DayCat.IsSeparated)"
+                 Field="@nameof(DayCat.Days)" CategoryField="@nameof(DayCat.WeekDay)">
+    </ChartSeries>
+    
+    </ChartSeriesItems>
+
+    <ChartTitle Text="Revenue per product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+
+    List<WeatherDay> _weathers = new List<WeatherDay>();
+
+    IEnumerable<DayCat> _weathers22 = null;
+    
+    public class DayCat
+    {
+        public String WeekDay { get; set; }
+        public int Days { get; set; }
+
+        public bool? IsSeparated
+        {
+            get
+            { if (WeekDay == "Monday") return true; else return false; }
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshWeathers();
+    }
+
+    private async Task RefreshWeathers()
+    {
+        var weathers1 = await Service.GetWeatherAsync();
+        var groupby = weathers1.GroupBy(a => a.WeekDay);
+
+        _weathers22 = weathers1.GroupBy(x => x.WeekDay)
+            .Select(y => new DayCat() {WeekDay = y.Key, Days = y.Count()});
+        //_weathers22.First().IsSeparated = true;
+
+    //var groupby22 = weathers1.GroupBy(a => a.WeekDay, 5);
+
+
+    //var weathegroup = 
+    }
+    /*
+    public class MyPieChartModel
+    {
+        public string SegmentName { get; set; }
+        public double SegmentValue { get; set; }
+    }
+    
+
+    public List<MyPieChartModel> pieData = new List<MyPieChartModel>
+    {
+        new MyPieChartModel
+        {
+            SegmentName = "Product 1",
+            SegmentValue = 2
+        },
+        new MyPieChartModel
+        {
+            SegmentName = "Product 2",
+            SegmentValue = 3
+        },
+        new MyPieChartModel
+        {
+            SegmentName = "Product 3",
+            SegmentValue = 4
+        }
+    };
+    */
+}

@@ -82,6 +82,20 @@ using BlazorServer.Data;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\_Imports.razor"
+using Telerik.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\_Imports.razor"
+using Telerik.Blazor.Components;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/error")]
     public partial class Error : Microsoft.AspNetCore.Components.ComponentBase
     {

@@ -83,8 +83,15 @@ using BlazorServer.Data;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Pages\Index.razor"
-using BlazorServer.Models;
+#line 11 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\_Imports.razor"
+using Telerik.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\_Imports.razor"
+using Telerik.Blazor.Components;
 
 #line default
 #line hidden
@@ -98,53 +105,19 @@ using BlazorServer.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 83 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Pages\Index.razor"
+#line 9 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Pages\Index.razor"
        
+   MarkupString helloString;
 
-    List<WeatherDay> _weathers = new List<WeatherDay>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        await RefreshWeathers();
-    }
-
-    private async Task RefreshWeathers()
-    {
-        _weathers = await Service.GetWeatherAsync();
-    }
-
-
-    private WeatherDay NewWeatherDay { get; set; } = new WeatherDay();
-    private async Task AddNewWeather()
-    {
-        NewWeatherDay.DateTime = DateTime.Now;
-        await Service.AddWeatherAsync(NewWeatherDay);
-        NewWeatherDay = new WeatherDay();
-        await RefreshWeathers();
-    }
-
-    WeatherDay _updateWeatherDay = new WeatherDay();
-    private void SetWeatherForUpdate(WeatherDay weatherDay)
-    {
-        _updateWeatherDay = weatherDay;
-    }
-
-    private async Task UpdateWeatherData()
-    {
-        await Service.UpdateWeatherAsync(_updateWeatherDay);
-        await RefreshWeathers();
-    }
-
-    private async Task DeleteWeather(WeatherDay weatherDay)
-    {
-        await Service.DeleteWeatherAsync(weatherDay);
-        await RefreshWeathers();
-    }
+   void SayHelloHandler()
+   {
+       string msg = string.Format("Hello from <strong>Telerik Blazor</strong> at {0}.<br /> Now you can use C# to write front-end!", DateTime.Now);
+       helloString = new MarkupString(msg);
+   }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private WeatherServices Service { get; set; }
     }
 }
 #pragma warning restore 1591

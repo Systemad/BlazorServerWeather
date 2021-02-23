@@ -82,6 +82,20 @@ using BlazorServer.Data;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\_Imports.razor"
+using Telerik.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\_Imports.razor"
+using Telerik.Blazor.Components;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,15 +104,15 @@ using BlazorServer.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Shared\NavMenu.razor"
+#line 39 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Shared\NavMenu.razor"
        
-    private bool collapseNavMenu = true;
+    private bool _collapseNavMenu = true;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string NavMenuCssClass => _collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {
-        collapseNavMenu = !collapseNavMenu;
+        _collapseNavMenu = !_collapseNavMenu;
     }
 
 #line default
