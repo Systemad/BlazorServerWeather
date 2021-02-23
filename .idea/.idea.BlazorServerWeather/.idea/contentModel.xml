@@ -10,6 +10,9 @@
         <e p="aaa.db" t="Include" />
         <e p="aaa.db-shm" t="Include" />
         <e p="aaa.db-wal" t="Include" />
+        <e p="Api" t="Include">
+          <e p="WeatherController.cs" t="Include" />
+        </e>
         <e p="App.razor" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
@@ -17,8 +20,6 @@
         <e p="BlazorServer.csproj" t="IncludeRecursive" />
         <e p="Data" t="Include">
           <e p="WeatherDbContext.cs" t="Include" />
-          <e p="WeatherForecast.cs" t="Include" />
-          <e p="WeatherForecastService.cs" t="Include" />
           <e p="WeatherServices.cs" t="Include" />
         </e>
         <e p="Models" t="Include">

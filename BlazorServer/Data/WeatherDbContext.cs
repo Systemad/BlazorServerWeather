@@ -7,6 +7,10 @@ namespace BlazorServer.Data
 {
     public class WeatherDbContext : DbContext
     {
+        public WeatherDbContext()
+        {
+        }
+        
         public WeatherDbContext(DbContextOptions<WeatherDbContext> options)
                 : base(options)
         {
