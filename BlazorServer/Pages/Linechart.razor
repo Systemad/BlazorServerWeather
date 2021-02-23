@@ -1,5 +1,6 @@
 ﻿@page "/linechart"
 @using BlazorServer.Models
+@using Microsoft.AspNetCore.Identity
 
 @inject WeatherServices Service
 
@@ -7,7 +8,7 @@ Pie series
 
 <TelerikChart>
     <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@_enumerable">
+        <ChartSeries Type="ChartSeriesType.Line" Name="Product 1" Data="@series1Data">
         </ChartSeries>
         <ChartSeries Type="ChartSeriesType.Line" Name="Product 2" Data="@series2Data">
         </ChartSeries>
@@ -34,8 +35,16 @@ Pie series
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 
     static Random rnd = new Random();
-    
-    IEnumerable<int> _enumerable = Enumerable.Range(1, 50).OrderBy(i => rnd.Next()).Take(12).ToArray();
+
+    public class Seeddata
+    {
+        public int One { get; set; }
+        public int Two { get; set; }
+        public int Three { get; set; }
+        public int Four { get; set; }
+    }
+
+    //series1Data Enumerable.Range(1, 50).OrderBy(i => rnd.Next()).Take(12).ToArray();
     
     public class DayCat
     {
