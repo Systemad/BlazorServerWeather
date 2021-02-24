@@ -25,7 +25,7 @@ namespace BlazorServer.Api
         [Route("Weathers")]
         public List<WeatherDay> GetAllWeather()
         {
-            var list = _dbContext.Weather
+            var list = _dbContext.WeatherDays
                     .ToList();
                 return list;
         }
@@ -35,7 +35,7 @@ namespace BlazorServer.Api
         [Route("WeatherById/{id}")]
         public WeatherDay GetWeatherById(int id)
         {
-            var weather = _dbContext.Weather
+            var weather = _dbContext.WeatherDays
                     .FirstOrDefault(b => b.WeatherId == id);
                 return weather;
         }
@@ -45,11 +45,11 @@ namespace BlazorServer.Api
         [Route("DeleteWeatherById/{id}")]
         public void DeleteWeatherById(int id)
         {
-            var weather = _dbContext.Weather.Single(b => b.WeatherId == id);
+            var weather = _dbContext.WeatherDays.Single(b => b.WeatherId == id);
                 
                 if(weather != null)
                 {
-                    _dbContext.Weather.Remove(weather);
+                    _dbContext.WeatherDays.Remove(weather);
                     _dbContext.SaveChangesAsync();
                 }
         }
@@ -60,7 +60,7 @@ namespace BlazorServer.Api
         public void PostWeather([FromForm] string weekday, [FromQuery] int temp)
         {
             //db.Database.EnsureCreated();
-            _dbContext.Weather.Add(new WeatherDay
+            _dbContext.WeatherDays.Add(new WeatherDay
             {
                 Temperature = temp, 
                 DateTime = DateTime.Now,

@@ -1,7 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Globalization;
 using BlazorServer.Models;
+using Bogus;
 
 namespace BlazorServer.Data
 {
@@ -17,24 +19,44 @@ namespace BlazorServer.Data
             Database.EnsureCreated();
         }
 
-        public DbSet<WeatherDay> Weather { get; set; }
+        public DbSet<WeatherDay> WeatherDays { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<WeatherDay>().HasData(GetWeathers());
+            //modelBuilder.Entity<WeatherDay>()
+            //    .Property(e => e.WeatherId)
+            //    .ValueGeneratedOnAdd();
+            
             base.OnModelCreating(modelBuilder);
+            //FakeData.GenerateWeather(200);
+            modelBuilder.Entity<WeatherDay>().HasData(FakeData.WeatherDays);
         }
 
-        private List<WeatherDay> GetWeathers()
+        public static class FakeData
         {
-            return new List<WeatherDay>
+            public static List<WeatherDay> WeatherDays = new List<WeatherDay>();
+            public static void GenerateWeather(int weathercount)
             {
-                new WeatherDay { WeatherId = 1, WeekDay = "Monday", Temperature = 19, DateTime = DateTime.Now},
-                new WeatherDay { WeatherId = 2, WeekDay = "Tuesday", Temperature = 20, DateTime = DateTime.Now},
-                new WeatherDay { WeatherId = 3, WeekDay = "Wednesday", Temperature = 18, DateTime = DateTime.Now},
-                new WeatherDay { WeatherId = 4, WeekDay = "Thursday", Temperature = 21, DateTime = DateTime.Now},
-                new WeatherDay { WeatherId = 5, WeekDay = "Friday", Temperature = 17, DateTime = DateTime.Now}
-            };
+                var weatherId = 1;
+                for( var i = 0; i < weathercount; i++, weatherId++)
+                {
+                    int temperature = new Random().Next(15, 25);
+                    
+                    DateTime start = new DateTime(2020, 1, 1); 
+                    Random gen = new Random(); 
+                    int range = (DateTime.Today - start).Days;
+                    var dayofweek = start.AddDays(gen.Next(range));
+                    
+                    var weather = new WeatherDay
+                    {
+                        WeatherId = weatherId,
+                        Temperature = temperature,
+                        WeekDay = dayofweek.DayOfWeek.ToString(),
+                        DateTime = dayofweek
+                    };
+                    WeatherDays.Add(weather);
+                }
+            }
         }
     }
 }

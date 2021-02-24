@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "BlazorServer/1.0.0": {
         "dependencies": {
+          "Bogus": "33.0.2",
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.4",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.4",
           "Radzen.Blazor": "3.1.1",
@@ -304,6 +305,17 @@
         },
         "compile": {
           "BlazorServer.dll": {}
+        }
+      },
+      "Bogus/33.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Bogus.dll": {
+            "assemblyVersion": "33.0.2.0",
+            "fileVersion": "33.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Bogus.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/3.1.0": {
@@ -2484,6 +2496,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Bogus/33.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-92CcSgl7KLEw7lerMytjY504IPnhmYqDkCgIPm5GVfiZPslRWUcgWvtoNYhKbSU4m/Ms7giKP8OxPAFTFBgC3w==",
+      "path": "bogus/33.0.2",
+      "hashPath": "bogus.33.0.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/3.1.0": {
       "type": "package",

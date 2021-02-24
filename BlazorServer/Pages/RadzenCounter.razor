@@ -6,11 +6,24 @@
 
 <RadzenButton Click="@IncrementCount" Text="Hi"></RadzenButton>
 
+<h3 style="margin-top: 2rem">DropDown with placeholder</h3>
+<RadzenDropDown AllowClear="true" TValue="string" 
+                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" AllowFiltering="true" 
+                Placeholder="Select..." Data=@_customers TextProperty="CompanyName" 
+                ValueProperty="CustomerID" Change=@(args => OnChange(args, "DropDown with placeholder")) />
+
 @code {
     private int _currentCount = 0;
+
+    private String[] _customers = {"Monday","Tuesday"};
 
     private void IncrementCount()
     {
         _currentCount++;
+    }
+    
+    void OnChange(object value, string name)
+    {
+        //var str = value is IEnumerable<object> ? string.Join(", ", (IEnumerable<object>)value) : value;
     }
 }

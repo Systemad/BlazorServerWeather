@@ -104,7 +104,7 @@ using Radzen.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Shared\NavMenu.razor"
+#line 40 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Shared\NavMenu.razor"
        
     private bool _collapseNavMenu = true;
 

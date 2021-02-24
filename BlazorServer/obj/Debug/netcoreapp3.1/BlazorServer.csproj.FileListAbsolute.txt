@@ -284,3 +284,6 @@ C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\bin\Debug\netcoreapp
 C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
 C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\RadzenCounter.razor.g.cs
 C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\obj\Debug\netcoreapp3.1\Razor\Pages\RadzenCounter.razor.g.cs
+C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Chart.razor.g.cs
+C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\obj\Debug\netcoreapp3.1\Razor\Pages\Chart.razor.g.cs
+C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\bin\Debug\netcoreapp3.1\Bogus.dll

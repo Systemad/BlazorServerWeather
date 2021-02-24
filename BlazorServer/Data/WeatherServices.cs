@@ -18,19 +18,19 @@ namespace BlazorServer.Data
         
         public async Task<List<WeatherDay>> GetWeatherAsync()
         {
-            return await _dbContext.Weather.ToListAsync();
+            return await _dbContext.WeatherDays.ToListAsync();
         }
         
         public async Task AddWeatherAsync(WeatherDay weatherDay)
         {
-            _dbContext.Weather.Add(weatherDay);
+            _dbContext.WeatherDays.Add(weatherDay);
             await _dbContext.SaveChangesAsync();
         }
         
         public async Task UpdateWeatherAsync(WeatherDay weatherDay)
         {
             var weatherExist =
-                _dbContext.Weather.FirstOrDefault(p => p.WeatherId == weatherDay.WeatherId);
+                _dbContext.WeatherDays.FirstOrDefault(p => p.WeatherId == weatherDay.WeatherId);
             if (weatherExist != null)
             {
                 _dbContext.Update(weatherDay);
@@ -40,7 +40,7 @@ namespace BlazorServer.Data
 
         public async Task DeleteWeatherAsync(WeatherDay weatherDay)
         {
-            _dbContext.Weather.Remove(weatherDay);
+            _dbContext.WeatherDays.Remove(weatherDay);
             await _dbContext.SaveChangesAsync();
         }
     }

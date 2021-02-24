@@ -27,7 +27,8 @@ namespace BlazorServer
             services.AddControllers();
             services.AddDbContext<WeatherDbContext>(options =>
             {
-                options.UseSqlite("Data Source = aaa.db");
+                options.UseSqlite("Data Source = test.db");
+                options.EnableSensitiveDataLogging();
             });
             
             services.AddSwaggerGen(c =>
