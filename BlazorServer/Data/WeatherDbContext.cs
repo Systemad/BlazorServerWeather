@@ -29,11 +29,11 @@ namespace BlazorServer.Data
         {
             return new List<WeatherDay>
             {
-                new WeatherDay { WeatherId = 1, WeekDay = "Monday", Temperature = 19, DateTime = DateTime.Now},
-                new WeatherDay { WeatherId = 2, WeekDay = "Tuesday", Temperature = 20, DateTime = DateTime.Now},
-                new WeatherDay { WeatherId = 3, WeekDay = "Wednesday", Temperature = 18, DateTime = DateTime.Now},
-                new WeatherDay { WeatherId = 4, WeekDay = "Thursday", Temperature = 21, DateTime = DateTime.Now},
-                new WeatherDay { WeatherId = 5, WeekDay = "Friday", Temperature = 17, DateTime = DateTime.Now}
+                new WeatherDay { WeatherId = 1, /* WeekDay = "Monday",*/ Temperature = 19, DateTime = DateTime.Now},
+                new WeatherDay { WeatherId = 2, /* WeekDay = "Tuesday", */ Temperature = 20, DateTime = DateTime.Now},
+                new WeatherDay { WeatherId = 3, /* WeekDay = "Wednesday", */ Temperature = 18, DateTime = DateTime.Now},
+                new WeatherDay { WeatherId = 4, /* WeekDay = "Thursday", */ Temperature = 21, DateTime = DateTime.Now},
+                new WeatherDay { WeatherId = 5, /* WeekDay = "Friday", */ Temperature = 17, DateTime = DateTime.Now}
             };
         }
     }

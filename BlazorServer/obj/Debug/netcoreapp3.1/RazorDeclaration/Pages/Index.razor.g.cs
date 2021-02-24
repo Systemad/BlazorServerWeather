@@ -112,7 +112,7 @@ using BlazorServer.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Pages\Index.razor"
+#line 14 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Pages\Index.razor"
        
     public IEnumerable<WeatherDay> WeatherDays;
     

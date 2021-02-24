@@ -112,7 +112,7 @@ using BlazorServer.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 84 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Pages\FetchData.razor"
+#line 88 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Pages\FetchData.razor"
        
 
     List<WeatherDay> _weathers = new List<WeatherDay>();
