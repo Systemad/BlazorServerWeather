@@ -112,10 +112,11 @@ using BlazorServer.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 83 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Pages\Index.razor"
+#line 15 "C:\Users\Dan\RiderProjects\BlazorServerWeather\BlazorServer\Pages\Index.razor"
        
-
-    List<WeatherDay> _weathers = new List<WeatherDay>();
+    public IEnumerable<WeatherDay> WeatherDays;
+    
+    //List<WeatherDay> _weathers = new List<WeatherDay>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -124,35 +125,7 @@ using BlazorServer.Models;
 
     private async Task RefreshWeathers()
     {
-        _weathers = await Service.GetWeatherAsync();
-    }
-
-
-    private WeatherDay NewWeatherDay { get; set; } = new WeatherDay();
-    private async Task AddNewWeather()
-    {
-        NewWeatherDay.DateTime = DateTime.Now;
-        await Service.AddWeatherAsync(NewWeatherDay);
-        NewWeatherDay = new WeatherDay();
-        await RefreshWeathers();
-    }
-
-    WeatherDay _updateWeatherDay = new WeatherDay();
-    private void SetWeatherForUpdate(WeatherDay weatherDay)
-    {
-        _updateWeatherDay = weatherDay;
-    }
-
-    private async Task UpdateWeatherData()
-    {
-        await Service.UpdateWeatherAsync(_updateWeatherDay);
-        await RefreshWeathers();
-    }
-
-    private async Task DeleteWeather(WeatherDay weatherDay)
-    {
-        await Service.DeleteWeatherAsync(weatherDay);
-        await RefreshWeathers();
+        WeatherDays = await Service.GetWeatherAsync();
     }
 
 #line default
