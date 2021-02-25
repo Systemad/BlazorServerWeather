@@ -1,0 +1,63 @@
+﻿@page "/simcard"
+@using BlazorServer.Models
+
+<RadzenGrid AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" FilterMode="FilterMode.Advanced" AllowPaging="true" PageSize="100"
+            AllowSorting="true" Data="@Simcards" TItem="SimCard" ColumnWidth="200px" AllowColumnResize="true">
+    <Columns>
+        <RadzenGridColumn TItem="SimCard" Property="DevEui" Title="DevEui" />
+        <RadzenGridColumn TItem="SimCard" Property="Name" Title="Name" />
+        <RadzenGridColumn TItem="SimCard" Property="ExternalId" Title="ExternalId" />
+        <RadzenGridColumn TItem="SimCard" Property="ProvisioningStatus" Title="ProvisioningStatus" />
+        <RadzenGridColumn TItem="SimCard" Property="LastSeen" Title="LastSeen" />
+        <RadzenGridColumn TItem="SimCard" Property="Manufacturer" Title="Manufacturer" />
+        <RadzenGridColumn TItem="SimCard" Property="Model" Title="Model" />
+        <RadzenGridColumn TItem="SimCard" Property="Account" Title="Account" />
+    </Columns>
+</RadzenGrid>
+@code {
+    //public IEnumerable<Simcard> SimCards;
+    
+    //List<Simcard> _simcards = new List<Simcard>();
+
+    public class SimCard
+    {
+        public string DevEui { get; set; }
+        public string Name { get; set; }
+        public int ExternalId { get; set; }
+        public string ProvisioningStatus { get; set; }
+        public DateTime LastSeen { get; set; }
+        public string Manufacturer { get; set; }
+        public string Model { get; set; }
+        public string Account { get; set; }
+    }
+
+    public List<SimCard> Simcards = new List<SimCard>
+    {
+        new SimCard
+        {
+            DevEui = "Test",
+            Name = "Test name",
+            ExternalId = 18172,
+            ProvisioningStatus = "Success",
+            LastSeen = DateTime.Now,
+            Manufacturer = "Manufacturer",
+            Model = "Model11",
+            Account = "Test Account"
+        }
+    };
+
+    /*
+    Simcard _hey = new Simcard
+    {
+        DevEui = "Test",
+        Name = "Test name",
+        ExternalId = 18172,
+        ProvisioningStatus = "Success",
+        LastSeen = DateTime.Now,
+        Manufacturer = "Manufacturer",
+        Model = "Model11",
+        Account = "Test Account"
+    };
+    */
+
+}

@@ -1,0 +1,23 @@
+﻿@page "/menu"
+<RadzenCard Style="height: 500px">
+    <RadzenMenu Style="text-align: right">
+        <RadzenMenuItem Text="Home" Icon="home" Path="index" Style="text-align: right"/>
+        <RadzenMenuItem Text="Devices">
+            <RadzenMenuItem Text="BLE Devices" Path="ble-devices"></RadzenMenuItem>
+            <RadzenMenuItem Text="LoRaWAN Devices" Path="lorawan-devices"></RadzenMenuItem>
+        </RadzenMenuItem>
+        <RadzenMenuItem Text="Gateways" Path="gateways"/>
+        <RadzenMenuItem Text="Integrations" Path="integrations"/>
+        <RadzenMenuItem Text="SIM Cards" Path="sim-cards"/>
+        
+        <RadzenMenuItem Text="Support">
+            <RadzenMenuItem Text="Forum" Path="forums"></RadzenMenuItem>
+            <RadzenMenuItem Text="Knowledge Articles" Path="articles"></RadzenMenuItem>
+            <RadzenMenuItem Text="Cases" Path="support"></RadzenMenuItem>
+        </RadzenMenuItem>
+        <RadzenMenuItem Text="Account" Icon="account_box">
+            <RadzenMenuItem Text="Profile" Path="tabs"></RadzenMenuItem>
+            <RadzenMenuItem Text="Sign out" Path="panel"></RadzenMenuItem>
+        </RadzenMenuItem>
+    </RadzenMenu>
+</RadzenCard>

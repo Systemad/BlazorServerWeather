@@ -37,7 +37,9 @@
           <e p="Error.razor" t="Include" />
           <e p="FetchData.razor" t="Include" />
           <e p="Index.razor" t="Include" />
+          <e p="menu.razor" t="Include" />
           <e p="RadzenCounter.razor" t="Include" />
+          <e p="Simcard.razor" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
