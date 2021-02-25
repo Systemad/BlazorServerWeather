@@ -28,7 +28,7 @@ namespace BlazorServer.Data
             //    .ValueGeneratedOnAdd();
             
             base.OnModelCreating(modelBuilder);
-            //FakeData.GenerateWeather(200);
+            //FakeData.GenerateWeather(27);
             modelBuilder.Entity<WeatherDay>().HasData(FakeData.WeatherDays);
         }
 
@@ -38,20 +38,17 @@ namespace BlazorServer.Data
             public static void GenerateWeather(int weathercount)
             {
                 var weatherId = 1;
+                DateTime start = new DateTime(2021, 2, 1); 
+                
                 for( var i = 0; i < weathercount; i++, weatherId++)
                 {
                     int temperature = new Random().Next(15, 25);
-                    
-                    DateTime start = new DateTime(2020, 1, 1); 
-                    Random gen = new Random(); 
-                    int range = (DateTime.Today - start).Days;
-                    var dayofweek = start.AddDays(gen.Next(range));
+                    var dayofweek = start.AddDays(i++);
                     
                     var weather = new WeatherDay
                     {
                         WeatherId = weatherId,
                         Temperature = temperature,
-                        WeekDay = dayofweek.DayOfWeek.ToString(),
                         DateTime = dayofweek
                     };
                     WeatherDays.Add(weather);

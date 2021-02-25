@@ -22,7 +22,6 @@
                     {
                         <tr @onclick="(() => SetWeatherForUpdate(weather))">
                             <td>@weather.WeatherId</td>
-                            <td>@weather.WeekDay</td>
                             <td>@weather.Temperature</td>
                             <td>@weather.DateTime</td>
                             <td><button class="btn btn-danger" @onclick="(() => DeleteWeather(weather))">Delete</button></td>
@@ -42,11 +41,6 @@
             <div class="p-3 mb-3 bg-primary text-white text-center">Add New Weather</div>
             <EditForm Model="@NewWeatherDay">
                 <div class="form-group">
-                    <label for="WeekDay">Weather Day Name</label>
-                    <input type="text" id="WeekDay" class="form-control" @bind-value="@NewWeatherDay.WeekDay" />
-                </div>
-
-                <div class="form-group">
                     <label for="Temperature">Temperature</label>
                     <input type="text" id="Temperature" class="form-control" @bind="@NewWeatherDay.Temperature" />
                 </div>
@@ -61,11 +55,6 @@
             <div class="p-3 mb-1 bg-primary text-white text-center">Update Weather</div>
 
             <EditForm Model="@_updateWeatherDay">
-                <div class="form-group">
-                    <label for="we">Weather Day Name</label>
-                    <input type="text" id="weatherid" class="form-control" @bind-value="@_updateWeatherDay.WeekDay" />
-                </div>
-
                 <div class="form-group">
                     <label for="Temperature">Temperature</label>
                     <input type="text" id="temperature" class="form-control" @bind="@_updateWeatherDay.Temperature" />

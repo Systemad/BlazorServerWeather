@@ -57,14 +57,13 @@ namespace BlazorServer.Api
         // /api/Weather/AddWeather
         [HttpPost]
         [Route("api/AddWeather")]
-        public void PostWeather([FromForm] string weekday, [FromQuery] int temp)
+        public void PostWeather([FromQuery] int temp)
         {
             //db.Database.EnsureCreated();
             _dbContext.WeatherDays.Add(new WeatherDay
             {
                 Temperature = temp, 
                 DateTime = DateTime.Now,
-                WeekDay = weekday
             });
             _dbContext.SaveChangesAsync();
         }
